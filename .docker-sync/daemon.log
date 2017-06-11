@@ -1,0 +1,380 @@
+          ok  Starting rsync for sync app-sync
+          ok  app-sync container still running
+          ok  app-sync: starting initial sync of /Users/hiro2/rails_projects/rails-docker/rails-app
+     command  rsync --exclude='./rails-app/child-programming-school/log/' -ap -v --copy-links --hard-links '/Users/hiro2/rails_projects/rails-docker/rails-app' rsync://127.0.0.1:14872/volume
+          ok  Synced /Users/hiro2/rails_projects/rails-docker/rails-app
+      output  building file list ... done
+
+sent 122519 bytes  received 16 bytes  245070.00 bytes/sec
+total size is 46694336  speedup is 381.07
+     success  Rsync server started
+     command  rsync --exclude='./rails-app/child-programming-school/log/' -ap -v --copy-links --hard-links '/Users/hiro2/rails_projects/rails-docker/rails-app' rsync://127.0.0.1:14872/volume
+          ok  Synced /Users/hiro2/rails_projects/rails-docker/rails-app
+      output  building file list ... done
+
+sent 122519 bytes  received 16 bytes  245070.00 bytes/sec
+total size is 46694336  speedup is 381.07
+          ok  Cli mode is auto, selecting .. 
+          ok  .. docker-sync 
+     success  Starting to watch /Users/hiro2/rails_projects/rails-docker/rails-app - Press CTRL-C to stop
+     command  fswatch -orIE --event AttributeModified --event Created --event Link --event MovedFrom --event MovedTo --event Renamed --event Removed --event Updated '/Users/hiro2/rails_projects/rails-docker/rails-app'  | xargs -I -n1 docker-sync sync -n app-sync --config='/Users/hiro2/rails_projects/rails-docker/docker-sync.yml'
+Sync app-sync       command  rsync --exclude='./rails-app/child-programming-school/log/' -ap -v --copy-links --hard-links '/Users/hiro2/rails_projects/rails-docker/rails-app' rsync://127.0.0.1:14872/volume
+Sync app-sync            ok  Synced /Users/hiro2/rails_projects/rails-docker/rails-app
+Sync app-sync        output  building file list ... done
+Sync app-sync  rails-app/child-programming-school/config/database.yml
+Sync app-sync  
+Sync app-sync  sent 123062 bytes  received 44 bytes  82070.67 bytes/sec
+Sync app-sync  total size is 46694366  speedup is 379.30
+Sync app-sync       command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-sync
+Sync app-sync       command  unison -ignore='Name ./rails-app/child-programming-school/log/' '/Users/hiro2/rails_projects/rails-docker/rails-app' -auto -batch -prefer '/Users/hiro2/rails_projects/rails-docker/rails-app' -copyonconflict -v --copy-links --hard-links socket://127.0.0.1:32769
+Sync app-sync         error  Error starting sync, exit code 0
+Sync app-sync       message  Usage: unison [options]
+Sync app-sync      or unison root1 root2 [options]
+Sync app-sync      or unison profilename [options]
+Sync app-sync  
+Sync app-sync  Basic options: 
+Sync app-sync   -auto              automatically accept default (nonconflicting) actions
+Sync app-sync   -batch             batch mode: ask no questions at all
+Sync app-sync   -doc xxx           show documentation ('-doc topics' lists topics)
+Sync app-sync   -fat               use appropriate options for FAT filesystems
+Sync app-sync   -group             synchronize group attributes
+Sync app-sync   -ignore xxx        add a pattern to the ignore list
+Sync app-sync   -ignorenot xxx     add a pattern to the ignorenot list
+Sync app-sync   -nocreation xxx    prevent file creations on one replica
+Sync app-sync   -nodeletion xxx    prevent file deletions on one replica
+Sync app-sync   -noupdate xxx      prevent file updates and deletions on one replica
+Sync app-sync   -owner             synchronize owner
+Sync app-sync   -path xxx          path to synchronize
+Sync app-sync   -perms n           part of the permissions which is synchronized
+Sync app-sync   -root xxx          root of a replica (should be used exactly twice)
+Sync app-sync   -silent            print nothing except error messages
+Sync app-sync   -terse             suppress status messages
+Sync app-sync   -testserver        exit immediately after the connection to the server
+Sync app-sync   -times             synchronize modification times
+Sync app-sync   -version           print version and exit
+Sync app-sync  
+Sync app-sync  Advanced options: 
+Sync app-sync   -addprefsto xxx    file to add new prefs to
+Sync app-sync   -addversionno      add version number to name of unison on server
+Sync app-sync   -backup xxx        add a pattern to the backup list
+Sync app-sync   -backupcurr xxx    add a pattern to the backupcurr list
+Sync app-sync   -backupcurrnot xxx add a pattern to the backupcurrnot list
+Sync app-sync   -backupdir xxx     directory for storing centralized backups
+Sync app-sync   -backuploc xxx     where backups are stored ('local' or 'central')
+Sync app-sync   -backupnot xxx     add a pattern to the backupnot list
+Sync app-sync   -backupprefix xxx  prefix for the names of backup files
+Sync app-sync   -backups           keep backup copies of all files (see also 'backup')
+Sync app-sync   -backupsuffix xxx  a suffix to be added to names of backup files
+Sync app-sync   -clientHostName xxx set host name of client
+Sync app-sync   -confirmbigdel     ask about whole-replica (or path) deletes (default true)
+Sync app-sync   -confirmmerge      ask for confirmation before committing results of a merge
+Sync app-sync   -contactquietly    suppress the 'contacting server' message during startup
+Sync app-sync   -copymax n         maximum number of simultaneous copyprog transfers
+Sync app-sync   -copyonconflict    keep copies of conflicting files
+Sync app-sync   -copyprog xxx      external program for copying large files
+Sync app-sync   -copyprogrest xxx  variant of copyprog for resuming partial transfers
+Sync app-sync   -copyquoterem xxx  add quotes to remote file name for copyprog (true/false/default)
+Sync app-sync   -copythreshold n   use copyprog on files bigger than this (if >=0, in Kb)
+Sync app-sync   -debug xxx         debug module xxx ('all' -> everything, 'verbose' -> more)
+Sync app-sync   -diff xxx          set command for showing differences between files
+Sync app-sync   -dontchmod         when set, never use the chmod system call
+Sync app-sync   -dumbtty           do not change terminal settings in text UI
+Sync app-sync   -fastcheck xxx     do fast update detection (true/false/default)
+Sync app-sync   -fastercheckUNSAFE skip computing fingerprints for new files (experts only!)
+Sync app-sync   -follow xxx        add a pattern to the follow list
+Sync app-sync   -force xxx         force changes from this replica to the other
+Sync app-sync   -forcepartial xxx  add a pattern to the forcepartial list
+Sync app-sync   -halfduplex        force half-duplex communication with the server
+Sync app-sync   -height n          height (in lines) of main window in graphical interface
+Sync app-sync   -host xxx          bind the socket to this host name in server socket mode
+Sync app-sync   -ignorearchives    ignore existing archive files
+Sync app-sync   -ignorecase xxx    identify upper/lowercase filenames (true/false/default)
+Sync app-sync   -ignoreinodenumbers ignore inode number changes when detecting updates
+Sync app-sync   -ignorelocks       ignore locks left over from previous run (dangerous!)
+Sync app-sync   -immutable xxx     add a pattern to the immutable list
+Sync app-sync   -immutablenot xxx  add a pattern to the immutablenot list
+Sync app-sync   -key xxx           define a keyboard shortcut for this profile (in some UIs)
+Sync app-sync   -killserver        kill server when done (even when using sockets)
+Sync app-sync   -label xxx         provide a descriptive string label for this profile
+Sync app-sync   -links xxx         allow the synchronization of symbolic links (true/false/default)
+Sync app-sync   -log               record actions in logfile (default true)
+Sync app-sync   -logfile xxx       logfile name
+Sync app-sync   -maxbackups n      number of backed up versions of a file
+Sync app-sync   -maxerrors n       maximum number of errors before a directory transfer is aborted
+Sync app-sync   -maxsizethreshold n prevent transfer of files bigger than this (if >=0, in Kb)
+Sync app-sync   -maxthreads n      maximum number of simultaneous file transfers
+Sync app-sync   -merge xxx         add a pattern to the merge list
+Sync app-sync   -mountpoint xxx    abort if this path does not exist
+Sync app-sync   -nocreationpartial xxx add a pattern to the nocreationpartial list
+Sync app-sync   -nodeletionpartial xxx add a pattern to the nodeletionpartial list
+Sync app-sync   -noupdatepartial xxx add a pattern to the noupdatepartial list
+Sync app-sync   -numericids        don't map uid/gid values by user/group names
+Sync app-sync   -prefer xxx        choose this replica's version for conflicting changes
+Sync app-sync   -preferpartial xxx add a pattern to the preferpartial list
+Sync app-sync   -repeat xxx        synchronize repeatedly (text interface only)
+Sync app-sync   -retry n           re-try failed synchronizations N times (text ui only)
+Sync app-sync   -rootalias xxx     register alias for canonical root names
+Sync app-sync   -rsrc xxx          synchronize resource forks (true/false/default)
+Sync app-sync   -rsync             activate the rsync transfer mode (default true)
+Sync app-sync   -selftest          run internal tests and exit
+Sync app-sync   -servercmd xxx     name of unison executable on remote server
+Sync app-sync   -showarchive       show 'true names' (for rootalias) of roots and archive
+Sync app-sync   -socket xxx        act as a server on a socket
+Sync app-sync   -sortbysize        list changed files by size, not name
+Sync app-sync   -sortfirst xxx     add a pattern to the sortfirst list
+Sync app-sync   -sortlast xxx      add a pattern to the sortlast list
+Sync app-sync   -sortnewfirst      list new before changed files
+Sync app-sync   -sshargs xxx       other arguments (if any) for remote shell command
+Sync app-sync   -sshcmd xxx        path to the ssh executable
+Sync app-sync   -stream            use a streaming protocol for transferring file contents (default true)
+Sync app-sync   -ui xxx            select UI ('text' or 'graphic'); command-line only
+Sync app-sync   -unicode xxx       assume Unicode encoding in case insensitive mode
+Sync app-sync   -watch             when set, use a file watcher process to detect changes (default true)
+Sync app-sync   -xferbycopying     optimize transfers using local copies (default true)
+Sync app-sync  
+Sync app-sync       message  unison: unknown option `-v'.
+Sync app-sync       command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-sync
+Sync app-sync       command  unison -ignore='Name ./rails-app/child-programming-school/log/' '/Users/hiro2/rails_projects/rails-docker/rails-app' -auto -batch -prefer '/Users/hiro2/rails_projects/rails-docker/rails-app' -copyonconflict -v --copy-links --hard-links socket://127.0.0.1:32770
+Sync app-sync         error  Error starting sync, exit code 0
+Sync app-sync       message  Usage: unison [options]
+Sync app-sync      or unison root1 root2 [options]
+Sync app-sync      or unison profilename [options]
+Sync app-sync  
+Sync app-sync  Basic options: 
+Sync app-sync   -auto              automatically accept default (nonconflicting) actions
+Sync app-sync   -batch             batch mode: ask no questions at all
+Sync app-sync   -doc xxx           show documentation ('-doc topics' lists topics)
+Sync app-sync   -fat               use appropriate options for FAT filesystems
+Sync app-sync   -group             synchronize group attributes
+Sync app-sync   -ignore xxx        add a pattern to the ignore list
+Sync app-sync   -ignorenot xxx     add a pattern to the ignorenot list
+Sync app-sync   -nocreation xxx    prevent file creations on one replica
+Sync app-sync   -nodeletion xxx    prevent file deletions on one replica
+Sync app-sync   -noupdate xxx      prevent file updates and deletions on one replica
+Sync app-sync   -owner             synchronize owner
+Sync app-sync   -path xxx          path to synchronize
+Sync app-sync   -perms n           part of the permissions which is synchronized
+Sync app-sync   -root xxx          root of a replica (should be used exactly twice)
+Sync app-sync   -silent            print nothing except error messages
+Sync app-sync   -terse             suppress status messages
+Sync app-sync   -testserver        exit immediately after the connection to the server
+Sync app-sync   -times             synchronize modification times
+Sync app-sync   -version           print version and exit
+Sync app-sync  
+Sync app-sync  Advanced options: 
+Sync app-sync   -addprefsto xxx    file to add new prefs to
+Sync app-sync   -addversionno      add version number to name of unison on server
+Sync app-sync   -backup xxx        add a pattern to the backup list
+Sync app-sync   -backupcurr xxx    add a pattern to the backupcurr list
+Sync app-sync   -backupcurrnot xxx add a pattern to the backupcurrnot list
+Sync app-sync   -backupdir xxx     directory for storing centralized backups
+Sync app-sync   -backuploc xxx     where backups are stored ('local' or 'central')
+Sync app-sync   -backupnot xxx     add a pattern to the backupnot list
+Sync app-sync   -backupprefix xxx  prefix for the names of backup files
+Sync app-sync   -backups           keep backup copies of all files (see also 'backup')
+Sync app-sync   -backupsuffix xxx  a suffix to be added to names of backup files
+Sync app-sync   -clientHostName xxx set host name of client
+Sync app-sync   -confirmbigdel     ask about whole-replica (or path) deletes (default true)
+Sync app-sync   -confirmmerge      ask for confirmation before committing results of a merge
+Sync app-sync   -contactquietly    suppress the 'contacting server' message during startup
+Sync app-sync   -copymax n         maximum number of simultaneous copyprog transfers
+Sync app-sync   -copyonconflict    keep copies of conflicting files
+Sync app-sync   -copyprog xxx      external program for copying large files
+Sync app-sync   -copyprogrest xxx  variant of copyprog for resuming partial transfers
+Sync app-sync   -copyquoterem xxx  add quotes to remote file name for copyprog (true/false/default)
+Sync app-sync   -copythreshold n   use copyprog on files bigger than this (if >=0, in Kb)
+Sync app-sync   -debug xxx         debug module xxx ('all' -> everything, 'verbose' -> more)
+Sync app-sync   -diff xxx          set command for showing differences between files
+Sync app-sync   -dontchmod         when set, never use the chmod system call
+Sync app-sync   -dumbtty           do not change terminal settings in text UI
+Sync app-sync   -fastcheck xxx     do fast update detection (true/false/default)
+Sync app-sync   -fastercheckUNSAFE skip computing fingerprints for new files (experts only!)
+Sync app-sync   -follow xxx        add a pattern to the follow list
+Sync app-sync   -force xxx         force changes from this replica to the other
+Sync app-sync   -forcepartial xxx  add a pattern to the forcepartial list
+Sync app-sync   -halfduplex        force half-duplex communication with the server
+Sync app-sync   -height n          height (in lines) of main window in graphical interface
+Sync app-sync   -host xxx          bind the socket to this host name in server socket mode
+Sync app-sync   -ignorearchives    ignore existing archive files
+Sync app-sync   -ignorecase xxx    identify upper/lowercase filenames (true/false/default)
+Sync app-sync   -ignoreinodenumbers ignore inode number changes when detecting updates
+Sync app-sync   -ignorelocks       ignore locks left over from previous run (dangerous!)
+Sync app-sync   -immutable xxx     add a pattern to the immutable list
+Sync app-sync   -immutablenot xxx  add a pattern to the immutablenot list
+Sync app-sync   -key xxx           define a keyboard shortcut for this profile (in some UIs)
+Sync app-sync   -killserver        kill server when done (even when using sockets)
+Sync app-sync   -label xxx         provide a descriptive string label for this profile
+Sync app-sync   -links xxx         allow the synchronization of symbolic links (true/false/default)
+Sync app-sync   -log               record actions in logfile (default true)
+Sync app-sync   -logfile xxx       logfile name
+Sync app-sync   -maxbackups n      number of backed up versions of a file
+Sync app-sync   -maxerrors n       maximum number of errors before a directory transfer is aborted
+Sync app-sync   -maxsizethreshold n prevent transfer of files bigger than this (if >=0, in Kb)
+Sync app-sync   -maxthreads n      maximum number of simultaneous file transfers
+Sync app-sync   -merge xxx         add a pattern to the merge list
+Sync app-sync   -mountpoint xxx    abort if this path does not exist
+Sync app-sync   -nocreationpartial xxx add a pattern to the nocreationpartial list
+Sync app-sync   -nodeletionpartial xxx add a pattern to the nodeletionpartial list
+Sync app-sync   -noupdatepartial xxx add a pattern to the noupdatepartial list
+Sync app-sync   -numericids        don't map uid/gid values by user/group names
+Sync app-sync   -prefer xxx        choose this replica's version for conflicting changes
+Sync app-sync   -preferpartial xxx add a pattern to the preferpartial list
+Sync app-sync   -repeat xxx        synchronize repeatedly (text interface only)
+Sync app-sync   -retry n           re-try failed synchronizations N times (text ui only)
+Sync app-sync   -rootalias xxx     register alias for canonical root names
+Sync app-sync   -rsrc xxx          synchronize resource forks (true/false/default)
+Sync app-sync   -rsync             activate the rsync transfer mode (default true)
+Sync app-sync   -selftest          run internal tests and exit
+Sync app-sync   -servercmd xxx     name of unison executable on remote server
+Sync app-sync   -showarchive       show 'true names' (for rootalias) of roots and archive
+Sync app-sync   -socket xxx        act as a server on a socket
+Sync app-sync   -sortbysize        list changed files by size, not name
+Sync app-sync   -sortfirst xxx     add a pattern to the sortfirst list
+Sync app-sync   -sortlast xxx      add a pattern to the sortlast list
+Sync app-sync   -sortnewfirst      list new before changed files
+Sync app-sync   -sshargs xxx       other arguments (if any) for remote shell command
+Sync app-sync   -sshcmd xxx        path to the ssh executable
+Sync app-sync   -stream            use a streaming protocol for transferring file contents (default true)
+Sync app-sync   -ui xxx            select UI ('text' or 'graphic'); command-line only
+Sync app-sync   -unicode xxx       assume Unicode encoding in case insensitive mode
+Sync app-sync   -watch             when set, use a file watcher process to detect changes (default true)
+Sync app-sync   -xferbycopying     optimize transfers using local copies (default true)
+Sync app-sync  
+Sync app-sync       message  unison: unknown option `-v'.
+Sync app-sync       command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' app-sync
+Sync app-sync       command  unison -ignore='Name ./rails-app/child-programming-school/log/' '/Users/hiro2/rails_projects/rails-docker/rails-app' -auto -batch -prefer '/Users/hiro2/rails_projects/rails-docker/rails-app' -copyonconflict -v --copy-links --hard-links socket://127.0.0.1:32770
+Sync app-sync         error  Error starting sync, exit code 0
+Sync app-sync       message  Usage: unison [options]
+Sync app-sync      or unison root1 root2 [options]
+Sync app-sync      or unison profilename [options]
+Sync app-sync  
+Sync app-sync  Basic options: 
+Sync app-sync   -auto              automatically accept default (nonconflicting) actions
+Sync app-sync   -batch             batch mode: ask no questions at all
+Sync app-sync   -doc xxx           show documentation ('-doc topics' lists topics)
+Sync app-sync   -fat               use appropriate options for FAT filesystems
+Sync app-sync   -group             synchronize group attributes
+Sync app-sync   -ignore xxx        add a pattern to the ignore list
+Sync app-sync   -ignorenot xxx     add a pattern to the ignorenot list
+Sync app-sync   -nocreation xxx    prevent file creations on one replica
+Sync app-sync   -nodeletion xxx    prevent file deletions on one replica
+Sync app-sync   -noupdate xxx      prevent file updates and deletions on one replica
+Sync app-sync   -owner             synchronize owner
+Sync app-sync   -path xxx          path to synchronize
+Sync app-sync   -perms n           part of the permissions which is synchronized
+Sync app-sync   -root xxx          root of a replica (should be used exactly twice)
+Sync app-sync   -silent            print nothing except error messages
+Sync app-sync   -terse             suppress status messages
+Sync app-sync   -testserver        exit immediately after the connection to the server
+Sync app-sync   -times             synchronize modification times
+Sync app-sync   -version           print version and exit
+Sync app-sync  
+Sync app-sync  Advanced options: 
+Sync app-sync   -addprefsto xxx    file to add new prefs to
+Sync app-sync   -addversionno      add version number to name of unison on server
+Sync app-sync   -backup xxx        add a pattern to the backup list
+Sync app-sync   -backupcurr xxx    add a pattern to the backupcurr list
+Sync app-sync   -backupcurrnot xxx add a pattern to the backupcurrnot list
+Sync app-sync   -backupdir xxx     directory for storing centralized backups
+Sync app-sync   -backuploc xxx     where backups are stored ('local' or 'central')
+Sync app-sync   -backupnot xxx     add a pattern to the backupnot list
+Sync app-sync   -backupprefix xxx  prefix for the names of backup files
+Sync app-sync   -backups           keep backup copies of all files (see also 'backup')
+Sync app-sync   -backupsuffix xxx  a suffix to be added to names of backup files
+Sync app-sync   -clientHostName xxx set host name of client
+Sync app-sync   -confirmbigdel     ask about whole-replica (or path) deletes (default true)
+Sync app-sync   -confirmmerge      ask for confirmation before committing results of a merge
+Sync app-sync   -contactquietly    suppress the 'contacting server' message during startup
+Sync app-sync   -copymax n         maximum number of simultaneous copyprog transfers
+Sync app-sync   -copyonconflict    keep copies of conflicting files
+Sync app-sync   -copyprog xxx      external program for copying large files
+Sync app-sync   -copyprogrest xxx  variant of copyprog for resuming partial transfers
+Sync app-sync   -copyquoterem xxx  add quotes to remote file name for copyprog (true/false/default)
+Sync app-sync   -copythreshold n   use copyprog on files bigger than this (if >=0, in Kb)
+Sync app-sync   -debug xxx         debug module xxx ('all' -> everything, 'verbose' -> more)
+Sync app-sync   -diff xxx          set command for showing differences between files
+Sync app-sync   -dontchmod         when set, never use the chmod system call
+Sync app-sync   -dumbtty           do not change terminal settings in text UI
+Sync app-sync   -fastcheck xxx     do fast update detection (true/false/default)
+Sync app-sync   -fastercheckUNSAFE skip computing fingerprints for new files (experts only!)
+Sync app-sync   -follow xxx        add a pattern to the follow list
+Sync app-sync   -force xxx         force changes from this replica to the other
+Sync app-sync   -forcepartial xxx  add a pattern to the forcepartial list
+Sync app-sync   -halfduplex        force half-duplex communication with the server
+Sync app-sync   -height n          height (in lines) of main window in graphical interface
+Sync app-sync   -host xxx          bind the socket to this host name in server socket mode
+Sync app-sync   -ignorearchives    ignore existing archive files
+Sync app-sync   -ignorecase xxx    identify upper/lowercase filenames (true/false/default)
+Sync app-sync   -ignoreinodenumbers ignore inode number changes when detecting updates
+Sync app-sync   -ignorelocks       ignore locks left over from previous run (dangerous!)
+Sync app-sync   -immutable xxx     add a pattern to the immutable list
+Sync app-sync   -immutablenot xxx  add a pattern to the immutablenot list
+Sync app-sync   -key xxx           define a keyboard shortcut for this profile (in some UIs)
+Sync app-sync   -killserver        kill server when done (even when using sockets)
+Sync app-sync   -label xxx         provide a descriptive string label for this profile
+Sync app-sync   -links xxx         allow the synchronization of symbolic links (true/false/default)
+Sync app-sync   -log               record actions in logfile (default true)
+Sync app-sync   -logfile xxx       logfile name
+Sync app-sync   -maxbackups n      number of backed up versions of a file
+Sync app-sync   -maxerrors n       maximum number of errors before a directory transfer is aborted
+Sync app-sync   -maxsizethreshold n prevent transfer of files bigger than this (if >=0, in Kb)
+Sync app-sync   -maxthreads n      maximum number of simultaneous file transfers
+Sync app-sync   -merge xxx         add a pattern to the merge list
+Sync app-sync   -mountpoint xxx    abort if this path does not exist
+Sync app-sync   -nocreationpartial xxx add a pattern to the nocreationpartial list
+Sync app-sync   -nodeletionpartial xxx add a pattern to the nodeletionpartial list
+Sync app-sync   -noupdatepartial xxx add a pattern to the noupdatepartial list
+Sync app-sync   -numericids        don't map uid/gid values by user/group names
+Sync app-sync   -prefer xxx        choose this replica's version for conflicting changes
+Sync app-sync   -preferpartial xxx add a pattern to the preferpartial list
+Sync app-sync   -repeat xxx        synchronize repeatedly (text interface only)
+Sync app-sync   -retry n           re-try failed synchronizations N times (text ui only)
+Sync app-sync   -rootalias xxx     register alias for canonical root names
+Sync app-sync   -rsrc xxx          synchronize resource forks (true/false/default)
+Sync app-sync   -rsync             activate the rsync transfer mode (default true)
+Sync app-sync   -selftest          run internal tests and exit
+Sync app-sync   -servercmd xxx     name of unison executable on remote server
+Sync app-sync   -showarchive       show 'true names' (for rootalias) of roots and archive
+Sync app-sync   -socket xxx        act as a server on a socket
+Sync app-sync   -sortbysize        list changed files by size, not name
+Sync app-sync   -sortfirst xxx     add a pattern to the sortfirst list
+Sync app-sync   -sortlast xxx      add a pattern to the sortlast list
+Sync app-sync   -sortnewfirst      list new before changed files
+Sync app-sync   -sshargs xxx       other arguments (if any) for remote shell command
+Sync app-sync   -sshcmd xxx        path to the ssh executable
+Sync app-sync   -stream            use a streaming protocol for transferring file contents (default true)
+Sync app-sync   -ui xxx            select UI ('text' or 'graphic'); command-line only
+Sync app-sync   -unicode xxx       assume Unicode encoding in case insensitive mode
+Sync app-sync   -watch             when set, use a file watcher process to detect changes (default true)
+Sync app-sync   -xferbycopying     optimize transfers using local copies (default true)
+Sync app-sync  
+Sync app-sync       message  unison: unknown option `-v'.
+Sync app-sync       command  rsync --exclude='./rails-app/child-programming-school/log/' -ap -v --copy-links --hard-links '/Users/hiro2/rails_projects/rails-docker/rails-app' rsync://127.0.0.1:14872/volume
+Sync app-sync            ok  Synced /Users/hiro2/rails_projects/rails-docker/rails-app
+Sync app-sync        output  building file list ... done
+Sync app-sync  rails-app/child-programming-school/config/database.yml
+Sync app-sync  
+Sync app-sync  sent 122565 bytes  received 44 bytes  245218.00 bytes/sec
+Sync app-sync  total size is 46694352  speedup is 380.84
+Sync app-sync       command  rsync --exclude='./rails-app/child-programming-school/log/' -ap -v --copy-links --hard-links '/Users/hiro2/rails_projects/rails-docker/rails-app' rsync://127.0.0.1:14872/volume
+Sync app-sync            ok  Synced /Users/hiro2/rails_projects/rails-docker/rails-app
+Sync app-sync        output  building file list ... done
+Sync app-sync  rails-app/child-programming-school/config/
+Sync app-sync  
+Sync app-sync  sent 122525 bytes  received 22 bytes  245094.00 bytes/sec
+Sync app-sync  total size is 46694337  speedup is 381.03
+Sync app-sync       command  rsync -ap -v --copy-links --hard-links '/Users/hiro2/rails_projects/rails-docker/rails-app/' rsync://127.0.0.1:14872/volume
+Sync app-sync            ok  Synced /Users/hiro2/rails_projects/rails-docker/rails-app/
+Sync app-sync        output  building file list ... done
+Sync app-sync  child-programming-school/config/database.yml
+Sync app-sync  child-programming-school/log/
+Sync app-sync  child-programming-school/tmp/
+Sync app-sync  
+Sync app-sync  sent 123051 bytes  received 56 bytes  246214.00 bytes/sec
+Sync app-sync  total size is 46694353  speedup is 379.30
+Sync app-sync       command  rsync -ap -v --copy-links --hard-links '/Users/hiro2/rails_projects/rails-docker/rails-app/' rsync://127.0.0.1:14872/volume
+Sync app-sync            ok  Synced /Users/hiro2/rails_projects/rails-docker/rails-app/
+Sync app-sync        output  building file list ... done
+Sync app-sync  
+Sync app-sync  sent 122509 bytes  received 16 bytes  245050.00 bytes/sec
+Sync app-sync  total size is 46694337  speedup is 381.10

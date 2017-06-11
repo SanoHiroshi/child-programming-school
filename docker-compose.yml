@@ -1,0 +1,31 @@
+version: '2'
+
+volumes:
+ app-sync:
+   external: true
+
+services:
+  app:
+    build: .
+    tty: true
+    stdin_open: true
+    container_name: "rails-docker"
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    environment:
+      RAILS_ENV: development
+    ports:
+      - '3000:3000'
+    volumes:
+      - app-sync:/rails-app
+    links:
+      - db
+  db:
+    image: "aleksxp/docker-mariadb-utf8:latest"
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_DATABASE=child-programming-school_development
+      - MYSQL_ROOT_USER=root
+      - MYSQL_USER=school_rails_app
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password

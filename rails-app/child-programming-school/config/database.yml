@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  username: school_rails_app
+  password: password
+  host: db
+
+development:
+  <<: *default
+  datsabase: child-programming-school_development
+
+test:
+  <<: *default
+  database: child-programming-school_test
+
+production:
+  <<: *default
+  database: child-programming-school_production
+  username: child-programming-school
+  password: <%= ENV['CHILD-PROGRAMMING-SCHOOL_DATABASE_PASSWORD'] %>

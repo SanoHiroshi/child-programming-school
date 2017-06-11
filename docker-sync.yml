@@ -1,0 +1,15 @@
+version: '2'
+
+options:
+  verbose: true
+  compose-file-path: 'docker-compose.yml'
+syncs:
+  app-sync:
+    sync_excludes: ['./rails-app/child-programming-school/log/']
+    src: './rails-app'
+    sync_strategy: 'rsync'
+    watch_strategy: 'fswatch'
+    sync_host_port: 14872
+    sync_user: 'labuser'
+    sync_userid: '1000'
+    sync_args: '-v --copy-links --hard-links'
